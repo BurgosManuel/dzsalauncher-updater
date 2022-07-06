@@ -38,8 +38,9 @@ function deleteBadTimes(timeArr) {
 fetch(apiUrl)
   .then((response) => response.json())
   .then((data) => {
-    let filteredData = data.result.filter((el) => !deleteBadTimes(el.time.split(':')));
-    console.log(filteredData)
+    let filteredData = data.result.filter((el) => deleteBadTimes(el.time.split(':')));
+    let badData =  data.result.filter((el) => !deleteBadTimes(el.time.split(':')));
+    console.log('Excluded servers: ' + badData);
     updateServersDate(data.created);
     updateServerList(data.result);
     downloadBtn.addEventListener("click", function () {
