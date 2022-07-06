@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DZSA ServerList Updater</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="bg-image"></div>
+    <div class="container">
+      <div class="text-center">
+        <h1>DZSA Launcher - Server List Updater</h1>
+        <h4>Made with ❤ by <a href="https://github.com/BurgosManuel" target="_BLANK">TrapecioINV</a></h3>
+      </div>
+      <h2># How it works?</h2>
+      <p>
+        - I made this simple website to request the server list from the
+        official DZSA Launcher API, then i parse it into a downloadable
+        <i>"dayz-servers.json"</i> file.
+      </p>
+      <p>
+        - This is useful to get rid of the
+        <b
+          ><i
+            >"There was a problem downloading server list one or more errors
+            occurred"</i
+          ></b
+        >
+        error.
+      </p>
+      <h2># How to use?</h2>
+      <p>- Wait until the server list is retrieved, and after that, simply <b>click the button below to start the download</b>
+      </p>
+      <p>
+        - The server name and IP:PORT will also be displayed below so you can
+        check your favourite servers information.
+      </p>
+      <h2># How to fix the error?</h2>
+      <p>
+        - Copy and paste the <i>"dayz-servers.json"</i> into
+        <b>Documents/dzsalauncher/</b>
+      </p>
+      <p>
+        DayZ Servers List Last Updated:
+        <i id="serversDate" class="text-warning p-2">UPDATING...</i>
+      </p>
+      <div id="buttonContainer">
+        <img
+        id="loadingIcon"
+        class="loadingIcon"
+        src="https://icon-library.com/images/loading-icon-transparent-background/loading-icon-transparent-background-12.jpg"
+        alt="Loading icon"
+      />
+      <a id="downloadBtn" class="d-none"
+        ><button class="btn btn-success">Download DZSA Servers File</button></a
+      >
+      </div>
+      <hr />
+      <h2>DZSA Servers List:</h2>
+      <hr />
+      <ul id="serversList"></ul>
+      <hr />
+    </div>
+
+    <script src="index.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
