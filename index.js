@@ -22,8 +22,8 @@ function updateServerList(data) {
 
 function updateServersDate(date) {
   serversDate.classList.remove("text-warning");
-  serversDate.classList.add("text-success");
-  serversDate.innerText = new Date(date);
+  serversDate.classList.add("text-success"); 
+  serversDate.innerText = new Date(date).toLocaleString();
 }
 
 function updateDownloadButton() {
