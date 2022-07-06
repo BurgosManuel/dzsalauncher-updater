@@ -22,22 +22,23 @@ function updateServerList(data) {
 
 function updateServersDate(date) {
   serversDate.classList.remove("text-warning");
-  serversDate.classList.add("text-success"); 
+  serversDate.classList.add("text-success");
   serversDate.innerText = new Date(date).toLocaleString();
 }
 
 function updateDownloadButton() {
-  loadingIcon.classList.add('d-none');
-  downloadBtn.classList.remove('d-none');
+  loadingIcon.classList.add("d-none");
+  downloadBtn.classList.remove("d-none");
 }
 
 fetch(apiUrl)
   .then((response) => response.json())
   .then((data) => {
+    let filteredData = data.result.filter((el) => el.time != "24:00");
     updateServersDate(data.created);
     updateServerList(data.result);
     downloadBtn.addEventListener("click", function () {
-      downloadObjectAsJson(data.result, "dayz-servers");
+      downloadObjectAsJson(filteredData, "dayz-servers");
     });
   })
   .then(() => updateDownloadButton())
