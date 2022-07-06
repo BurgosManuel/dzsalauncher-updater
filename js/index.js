@@ -31,10 +31,15 @@ function updateDownloadButton() {
   downloadBtn.classList.remove("d-none");
 }
 
+function deleteBadTimes(timeArr) {
+  return timeArr[0] != '24' && timeArr[1] != '60';
+}
+
 fetch(apiUrl)
   .then((response) => response.json())
   .then((data) => {
-    let filteredData = data.result.filter((el) => el.time != "24:00");
+    let filteredData = data.result.filter((el) => !deleteBadTimes(el.time.split(':')));
+    console.log(filteredData)
     updateServersDate(data.created);
     updateServerList(data.result);
     downloadBtn.addEventListener("click", function () {
